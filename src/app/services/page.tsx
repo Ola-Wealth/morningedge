@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import SectionWrapper from "@/components/SectionWrapper";
+import FadeIn from "@/components/FadeIn";
 import { Settings2, BrainCircuit, Mic2 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -66,16 +66,18 @@ export default function ServicesPage() {
       {/* Header */}
       <section className="bg-[#0A0A0A] py-28 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[#D4A017] text-sm font-semibold uppercase tracking-widest mb-4">Services</p>
-          <h1
-            className="text-5xl lg:text-6xl font-black text-white max-w-2xl leading-tight"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            Built for businesses serious about execution.
-          </h1>
-          <p className="text-gray-400 mt-6 max-w-xl text-lg leading-relaxed">
-            Three service areas. Each one designed to remove a specific constraint standing between where your business is and where it needs to be.
-          </p>
+          <FadeIn>
+            <p className="text-[#D4A017] text-sm font-semibold uppercase tracking-widest mb-4">Services</p>
+            <h1
+              className="text-5xl lg:text-6xl font-black text-white max-w-2xl leading-tight"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              Built for businesses serious about execution.
+            </h1>
+            <p className="text-gray-400 mt-6 max-w-xl text-lg leading-relaxed">
+              Three service areas. Each one designed to remove a specific constraint standing between where your business is and where it needs to be.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
@@ -85,7 +87,8 @@ export default function ServicesPage() {
         return (
           <section key={service.slug} className={isEven ? "bg-white py-20" : "bg-[#F5F5F5] py-20"}>
             <div className="max-w-7xl mx-auto px-6">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-sm ${isEven ? "" : "lg:[direction:rtl]"}`}>
+              <FadeIn delay={0.05}>
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-sm ${isEven ? "" : "lg:[direction:rtl]"}`}>
                 {/* Photo */}
                 <div className="relative h-72 lg:h-auto min-h-[420px]">
                   <Image
@@ -120,6 +123,7 @@ export default function ServicesPage() {
                   </p>
                 </div>
               </div>
+            </FadeIn>
             </div>
           </section>
         );
@@ -127,21 +131,23 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section className="bg-[#D4A017] py-24 px-6 text-center">
-        <h2
-          className="text-4xl font-bold text-white mb-4"
-          style={{ fontFamily: "var(--font-playfair)" }}
-        >
-          Let&apos;s build something that lasts.
-        </h2>
-        <p className="text-amber-100 mb-10">
-          If you are ready to move from fragmented execution to structured growth, I am ready to work.
-        </p>
-        <Link
-          href="/contact"
-          className="inline-block bg-white text-[#D4A017] px-10 py-5 rounded-xl text-sm font-semibold hover:bg-amber-50 transition-colors"
-        >
-          Start the Conversation
-        </Link>
+        <FadeIn>
+          <h2
+            className="text-4xl font-bold text-white mb-4"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            Let&apos;s build something that lasts.
+          </h2>
+          <p className="text-amber-100 mb-10">
+            If you are ready to move from fragmented execution to structured growth, I am ready to work.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-white text-[#D4A017] px-10 py-5 rounded-xl text-sm font-semibold hover:bg-amber-50 transition-colors"
+          >
+            Start the Conversation
+          </Link>
+        </FadeIn>
       </section>
     </>
   );

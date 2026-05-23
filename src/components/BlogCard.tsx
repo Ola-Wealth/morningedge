@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 interface BlogCardProps {
@@ -15,7 +17,11 @@ interface BlogCardProps {
 
 export default function BlogCard({ category, title, date, excerpt, slug, thumbnail }: BlogCardProps) {
   return (
-    <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+    <motion.div
+      whileHover={{ y: -8, boxShadow: "0 20px 48px rgba(0,0,0,0.10)" }}
+      transition={{ type: "spring", stiffness: 280, damping: 22 }}
+      className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col"
+    >
       {/* Thumbnail */}
       <div
         className="h-44 flex flex-col items-center justify-center gap-2 relative"
@@ -42,6 +48,6 @@ export default function BlogCard({ category, title, date, excerpt, slug, thumbna
           Read &rarr;
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }
